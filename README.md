@@ -2,3 +2,5 @@
 Docker image for compiling nRF52 BlueFruit code using the Arduino cli docker image 
 
 Latest build: BSP 0.13.0
+
+Uses the latest Arduino-CLI build
