@@ -10,5 +10,4 @@ RUN arduino-cli core search nrf52
 RUN arduino-cli core install adafruit:nrf52
 RUN mkdir /test
 COPY test.ino /test
-RUN ls /
 RUN arduino-cli compile -v --fqbn adafruit:nrf52:feather52832 --build-path /tmp /test/test.ino
