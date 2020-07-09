@@ -9,4 +9,4 @@ RUN pip3 install adafruit-nrfutil
 RUN arduino-cli core search nrf52
 RUN arduino-cli core install adafruit:nrf52
 COPY test.ino /
-RUN arduino-cli compile -v --fqbn adafruit:nrf52:feather52832 --build-path /tmp test.ino
+RUN arduino-cli compile -v --fqbn adafruit:nrf52:feather52832 --build-path /tmp /test.ino
