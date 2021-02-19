@@ -1,5 +1,5 @@
 # Adafruit_nRF52_Arduino Docker Container
-Docker image for compiling nRF52 BlueFruit code using the Arduino cli docker image 
+Docker image for compiling nRF52 BlueFruit code using the Arduino cli docker image.
 
 Uses the latest ![Adafruit Library for releases](https://img.shields.io/github/release/adafruit/Adafruit_nRF52_Arduino.svg) 
 
