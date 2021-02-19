@@ -3,11 +3,15 @@ Docker image for compiling nRF52 BlueFruit code using the Arduino cli docker ima
 
 Uses the latest ![Adafruit Library for releases](https://img.shields.io/github/release/adafruit/Adafruit_nRF52_Arduino.svg) 
 
+<<<<<<< HEAD
 Uses the latest Arduino-CLI ![Releases](https://img.shields.io/github/v/release/arduino/arduino-cli.svg)
 
 There is a github action that check for new releases every day.
 
 ## Using the image
+=======
+Uses the latest Arduino-CLI image 0.16.0 ![Adafruit Library for releases](https://img.shields.io/github/v/release/arduino/arduino-cli.svg)
+>>>>>>> f6922c36441ea090106342dc93c6b77206236e07
 
 Find the container for you to use on [Dockerhub](https://hub.docker.com/r/jpconstantineau/arduino-cli-bluefruit-nrf52).
 
