@@ -1,4 +1,5 @@
-FROM jpconstantineau/arduino-cli:latest 
+FROM ghcr.io/jpconstantineau/docker_arduino_cli:latest 
+LABEL org.opencontainers.image.source="https://github.com/jpconstantineau/Docker_Bluefruit_nRF52"
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get install -y libc6:i386 && rm -rf /var/lib/apt/lists/*
