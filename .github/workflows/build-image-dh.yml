@@ -1,8 +1,13 @@
 name: Build and publish container to dockerhub
 
 on:
-  push:
-    branches: [ master ]
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      DOCKER_HUB_ACCESS_TOKEN:
+        required: true
+      DOCKER_HUB_USER:
+        required: true
 
 jobs:
 
@@ -22,6 +27,11 @@ jobs:
 
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u ${{ secrets.DOCKER_HUB_USER }} --password-stdin
+
+    - name: Fetch release version for Adafruit_nRF52_Arduino
+      run: |
+        curl -sL https://api.github.com/repos/adafruit/Adafruit_nRF52_Arduino/releases/latest | \
+        jq -r ".tag_name" > release-versions/Adafruit_nRF52_Arduino-latest.txt
 
     - name: Build and push container image
       run: |

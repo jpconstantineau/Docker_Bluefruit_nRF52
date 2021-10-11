@@ -6,6 +6,8 @@ on:
 jobs:
   get-version:
     runs-on: ubuntu-latest
+    outputs:
+      modified: ${{steps.git-check.outputs.modified}}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -28,3 +30,17 @@ jobs:
           git config --global user.email 'your-email@users.noreply.github.com'
           git commit -am "New release version - Adafruit_nRF52_Arduino"
           git push
+
+
+  build-dh:
+    needs: get-version
+    if: ${{ needs.get-version.outputs.modified == 'true' }}
+    uses: jpconstantineau/Docker_Bluefruit_nRF52/.github/workflows/build-image-dh.yml@master
+    secrets:
+        DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
+
+  build-ghcr:
+    needs: get-version
+    if: ${{ needs.get-version.outputs.modified == 'true' }}
+    uses: jpconstantineau/Docker_Bluefruit_nRF52/.github/workflows/build-image-ghcr.yml@master
